@@ -39,20 +39,24 @@ $( document ).ready(function() {
     $('#coindiv').empty();
 
     for (i = 0; i < quarters; i++) {
-      $('#coindiv').append('<img class="coin" src="img/25c.svg">');
+      $('#coindiv').append('<img class="coin" src="img/25c.svg">').hide().fadeIn('fast');
     }
 
+
     for (i = 0; i < dimes; i++) {
-      $('#coindiv').append('<img class="coin" src="img/10c.svg">');
+      $('#coindiv').append('<img class="coin" src="img/10c.svg">').hide().fadeIn('fast');
+
     }
 
     for (i = 0; i < nickels; i++) {
-      $('#coindiv').append('<img class="coin" src="img/5c.svg">');
+      $('#coindiv').append('<img class="coin" src="img/5c.svg">').hide().fadeIn('fast');
     }
 
     for (i = 0; i < pennies; i++) {
-      $('#coindiv').append('<img class="coin" src="img/1c.svg">');
+      $('#coindiv').append('<img class="coin" src="img/1c.svg">').hide().fadeIn('fast');
     }
+
+    // $('#coindiv').fadeIn('slow');
     //To do: auto scroll down to section to watch pig and coins
 //     $('html, body').animate({
 //     scrollTop: $("#coindiv").offset().top
