@@ -1,3 +1,5 @@
+//bug on $25/hr slide... 42c, 43c, 42c... Eve, your math is wrong please fix it. Love, Eve.
+
 $( document ).ready(function() {
   $('.range-slider').on('input', function() {
     var newValue = $(this).val();
@@ -9,6 +11,8 @@ $( document ).ready(function() {
     } else {
       $(label).html(newValue);
     }
+
+    hoursToSeconds();
   });
 
   function hoursToSeconds() {
@@ -19,7 +23,7 @@ $( document ).ready(function() {
     $('#wage-output').css({'display':'block'});
 
     //calculate coins needed
-    wagePerSecond = wagePerSecond * 100;
+    wagePerSecond = Math.round(wagePerSecond * 100);
     var quarters = Math.floor(wagePerSecond / 25);
     wagePerSecond = wagePerSecond - quarters * 25;
 
@@ -34,37 +38,29 @@ $( document ).ready(function() {
 
     $('#coindiv').empty();
 
-    if (quarters > 0) {
-      for (i = 0; i < quarters; i++) {
-        $('#coindiv').append('<img class="coin" src="img/25c.svg">');
-      }
+    for (i = 0; i < quarters; i++) {
+      $('#coindiv').append('<img class="coin" src="img/25c.svg">');
     }
 
-    if (dimes > 0) {
-      for (i = 0; i < dimes; i++) {
-        $('#coindiv').append('<img class="coin" src="img/10c.svg">');
-      }
+    for (i = 0; i < dimes; i++) {
+      $('#coindiv').append('<img class="coin" src="img/10c.svg">');
     }
 
-    if (nickels > 0) {
-      for (i = 0; i < nickels; i++) {
-        $('#coindiv').append('<img class="coin" src="img/5c.svg">');
-      }
+    for (i = 0; i < nickels; i++) {
+      $('#coindiv').append('<img class="coin" src="img/5c.svg">');
     }
 
-    if (pennies > 0) {
-      for (i = 0; i < pennies; i++) {
-        $('#coindiv').append('<img class="coin" src="img/1c.svg">');
-      }
+    for (i = 0; i < pennies; i++) {
+      $('#coindiv').append('<img class="coin" src="img/1c.svg">');
     }
     //To do: auto scroll down to section to watch pig and coins
-    $('html, body').animate({
-    scrollTop: $("#coindiv").offset().top
-}, 200);
+//     $('html, body').animate({
+//     scrollTop: $("#coindiv").offset().top
+// }, 200);
   }
 
   $('#gobtn').click(function() {
-    hoursToSeconds();
+    // hoursToSeconds();
   });
 
 }); //end ready
