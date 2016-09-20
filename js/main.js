@@ -13,6 +13,10 @@ $( document ).ready(function() {
     var label = $( '#' + $(this).attr('id') + '-display');
     var centsVal = $('#cents').val();
 
+
+    clearInterval(timingVar);
+    cumulativeMoney = 0;
+
     if (($(this).attr('id') === 'cents') && (centsVal.length === 1)) {
       $('#cents-display').html('0' + newValue);
     } else {
@@ -78,11 +82,14 @@ $( document ).ready(function() {
   }
 
   $('#startbtn').click(function() {
+    clearInterval(timingVar);
+    cumulativeMoney = 0;
     timingVar = window.setInterval(counting, 1000);
   });
 
   $('#stopbtn').click(function() {
     clearInterval(timingVar);
+    cumulativeMoney = 0;
   });
 
   hoursToSeconds();
