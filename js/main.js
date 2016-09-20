@@ -1,5 +1,10 @@
 //bug on $25/hr slide... 42c, 43c, 42c... Eve, your math is wrong please fix it. Love, Eve.
 
+var secondsElapsed = 0;
+var minutesElapsed = 0;
+var cumulativeMoney = 0;
+var wagePerSecond, timingVar;
+
 $( document ).ready(function() {
   $('.range-slider').on('input', function() {
     var newValue = $(this).val();
@@ -17,44 +22,42 @@ $( document ).ready(function() {
 
   function hoursToSeconds() {
     var wagePerHour = parseInt($('#dollar').val()) + "." + parseInt($('#cents').val());
-    var wagePerSecond = (wagePerHour / 60).toFixed(2);
+    wagePerSecond = Number((wagePerHour / 3600).toFixed(4));
 
     $('#seconds-wage').html(wagePerSecond)
     $('#wage-output').css({'display':'block'});
-
-    //calculate coins needed
-    wagePerSecond = Math.round(wagePerSecond * 100);
-    var quarters = Math.floor(wagePerSecond / 25);
-    wagePerSecond = wagePerSecond - quarters * 25;
-
-    var dimes = Math.floor(wagePerSecond / 10);
-    wagePerSecond = wagePerSecond  - dimes * 10;
-
-    var nickels = Math.floor(wagePerSecond / 5);
-    wagePerSecond = wagePerSecond - nickels * 5;
-
-    var pennies = wagePerSecond;
-
-
-    $('#coindiv').empty();
-
-    for (i = 0; i < quarters; i++) {
-      $('#coindiv').append('<img class="coin" src="img/25c.svg">').hide().fadeIn('fast');
-    }
-
-
-    for (i = 0; i < dimes; i++) {
-      $('#coindiv').append('<img class="coin" src="img/10c.svg">').hide().fadeIn('fast');
-
-    }
-
-    for (i = 0; i < nickels; i++) {
-      $('#coindiv').append('<img class="coin" src="img/5c.svg">').hide().fadeIn('fast');
-    }
-
-    for (i = 0; i < pennies; i++) {
-      $('#coindiv').append('<img class="coin" src="img/1c.svg">').hide().fadeIn('fast');
-    }
+    //
+    // // calculate coins needed
+    // var quarters = Math.floor(wagePerSecond / 25);
+    // wagePerSecond = wagePerSecond - quarters * 25;
+    //
+    // var dimes = Math.floor(wagePerSecond / 10);
+    // wagePerSecond = wagePerSecond  - dimes * 10;
+    //
+    // var nickels = Math.floor(wagePerSecond / 5);
+    // wagePerSecond = wagePerSecond - nickels * 5;
+    //
+    // var pennies = wagePerSecond;
+    //
+    // $('#coindiv').empty();
+    //
+    // for (i = 0; i < quarters; i++) {
+    //   $('#coindiv').append('<img class="coin" src="img/25c.svg">').hide().fadeIn('fast');
+    // }
+    //
+    //
+    // for (i = 0; i < dimes; i++) {
+    //   $('#coindiv').append('<img class="coin" src="img/10c.svg">').hide().fadeIn('fast');
+    //
+    // }
+    //
+    // for (i = 0; i < nickels; i++) {
+    //   $('#coindiv').append('<img class="coin" src="img/5c.svg">').hide().fadeIn('fast');
+    // }
+    //
+    // for (i = 0; i < pennies; i++) {
+    //   $('#coindiv').append('<img class="coin" src="img/1c.svg">').hide().fadeIn('fast');
+    // }
 
     // $('#coindiv').fadeIn('slow');
     //To do: auto scroll down to section to watch pig and coins
@@ -63,8 +66,23 @@ $( document ).ready(function() {
 // }, 200);
   }
 
-  $('#gobtn').click(function() {
-    // hoursToSeconds();
+  function counting() {
+    var elapsedTime;
+
+    cumulativeMoney = Number((cumulativeMoney += wagePerSecond).toFixed(4));
+
+    $('#elapsedTime').html(elapsedTime);
+    $('#cumulativeWage').html(cumulativeMoney);
+  }
+
+  $('#startbtn').click(function() {
+    timingVar = window.setInterval(counting, 1000);
   });
+
+  $('#stopbtn').click(function() {
+    clearInterval(timingVar);
+  });
+
+  hoursToSeconds();
 
 }); //end ready

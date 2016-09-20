@@ -140,8 +140,8 @@ textarea {
      border-radius: 1.5em;
    }
 
-   #gobtn {
-     display: block;
+   button {
+     display: inline-block;
      background-color: #4CAF50;
      border: none;
      border-radius: 1rem;
@@ -154,7 +154,7 @@ textarea {
      cursor: pointer;
    }
 
-   #gobtn:hover {
+   button:hover {
      background-color: #4CBF50;
    }
 
