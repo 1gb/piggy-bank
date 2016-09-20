@@ -38,11 +38,10 @@
             <label for="cents">Cents:</label>
             <input type="range" class="range-slider" id="cents" value="0" min="0" max="99" step="1">
           </div>
+          <div id="amountPerSec">You earn $<span id="seconds-wage"></span> per second!<div>
         </div>
 
-        <div id="amountPerSec">You earn $<span id="seconds-wage"></span> per second!<div>
           <div id="counter"><span id="elapsedTime"></span></div>
-          <div id="cumulativeTotal">So far, you've earned: $<span id="cumulativeWage"></span></div>
           <button id="startbtn">Start Counter</button>
           <button id="stopbtn">Stop Counter</button>
 
@@ -51,7 +50,7 @@
         </div>
 
         <div id="pigdiv">
-          <img id="pbank" src="img/piggybank.svg" alt="piggy-bank">
+          <div id="cumulativeTotal">$<span id="cumulativeWage"></span></div>
         </div>
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>

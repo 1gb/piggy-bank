@@ -1,5 +1,7 @@
 //bug on $25/hr slide... 42c, 43c, 42c... Eve, your math is wrong please fix it. Love, Eve.
 
+//style the sliders so they're bigger/easier to grab on mobile
+
 var secondsElapsed = 0;
 var minutesElapsed = 0;
 var cumulativeMoney = 0;

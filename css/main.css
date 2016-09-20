@@ -150,7 +150,7 @@ textarea {
      text-align: center;
      text-decoration: none;
      font-size: 1.3em;
-     margin: 0 auto;
+     margin: 10 auto;
      cursor: pointer;
    }
 
@@ -158,9 +158,8 @@ textarea {
      background-color: #4CBF50;
    }
 
-   #wage-output {
-     display: none;
-     margin: 1em;
+   #stopbtn {
+     margin-left: 10px;
    }
 
    .container {
@@ -181,16 +180,35 @@ textarea {
 
    #pigdiv {
      margin: 0 auto;
-     width: 36%;
-     display: none;
+     margin-top: 10px;
+     height: 400px;
+     width: 50%;
+     padding: 30px;
+     background-image: url(../img/piggybank.svg);
+     background-repeat: no-repeat;
+     background-position: center center;
+     /*border: 2px solid #888;*/
    }
+
+   #cumulativeTotal {
+     margin-top: 200px;
+     color: #4CAF50;
+     font-size: 45px;
+   }
+
    #pbank {
+     float: center;
      width: 100%;
    }
 
    @media (max-width: 600px) {
      .wage-display-group {
        width: 85%;
+     }
+
+     #stopbtn {
+       margin-left: 0px;
+       margin-top: 10px;
      }
 
      #dollar-section,
