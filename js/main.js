@@ -30,46 +30,8 @@ $( document ).ready(function() {
     var wagePerHour = parseInt($('#dollar').val()) + "." + parseInt($('#cents').val());
     wagePerSecond = Number((wagePerHour / 3600).toFixed(4));
 
-    $('#seconds-wage').html(wagePerSecond)
+    $('#seconds-wage').html(wagePerSecond);
     $('#wage-output').css({'display':'block'});
-    //
-    // // calculate coins needed
-    // var quarters = Math.floor(wagePerSecond / 25);
-    // wagePerSecond = wagePerSecond - quarters * 25;
-    //
-    // var dimes = Math.floor(wagePerSecond / 10);
-    // wagePerSecond = wagePerSecond  - dimes * 10;
-    //
-    // var nickels = Math.floor(wagePerSecond / 5);
-    // wagePerSecond = wagePerSecond - nickels * 5;
-    //
-    // var pennies = wagePerSecond;
-    //
-    // $('#coindiv').empty();
-    //
-    // for (i = 0; i < quarters; i++) {
-    //   $('#coindiv').append('<img class="coin" src="img/25c.svg">').hide().fadeIn('fast');
-    // }
-    //
-    //
-    // for (i = 0; i < dimes; i++) {
-    //   $('#coindiv').append('<img class="coin" src="img/10c.svg">').hide().fadeIn('fast');
-    //
-    // }
-    //
-    // for (i = 0; i < nickels; i++) {
-    //   $('#coindiv').append('<img class="coin" src="img/5c.svg">').hide().fadeIn('fast');
-    // }
-    //
-    // for (i = 0; i < pennies; i++) {
-    //   $('#coindiv').append('<img class="coin" src="img/1c.svg">').hide().fadeIn('fast');
-    // }
-
-    // $('#coindiv').fadeIn('slow');
-    //To do: auto scroll down to section to watch pig and coins
-//     $('html, body').animate({
-//     scrollTop: $("#coindiv").offset().top
-// }, 200);
   }
 
   function counting() {
@@ -81,15 +43,23 @@ $( document ).ready(function() {
     $('#cumulativeWage').html(cumulativeMoney);
   }
 
-  $('#startbtn').click(function() {
-    clearInterval(timingVar);
-    cumulativeMoney = 0;
-    timingVar = window.setInterval(counting, 1000);
-  });
+  $('#startStopBtn').on('click', function(e) {
 
-  $('#stopbtn').click(function() {
+    e.preventDefault();
     clearInterval(timingVar);
     cumulativeMoney = 0;
+    console.log(this);
+    timingVar = window.setInterval(counting, 1000);
+    if ($('#startStopBtn').hasClass('startCounter')) {
+      $('html, body').animate({
+        scrollTop: $("#pigdiv").offset().top
+      }, 1000);
+      $('#startStopBtn').removeClass('startCounter').addClass('stopCounter').text('Stop Counter');
+    } else {
+      $('#startStopBtn').removeClass('stopCounter').addClass('startCounter').text('Start Counter');
+      clearInterval(timingVar);
+      cumulativeMoney = 0;
+    }
   });
 
   hoursToSeconds();

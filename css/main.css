@@ -113,14 +113,6 @@ textarea {
      margin: 0 auto;
    }
 
-   .wage-display {
-     font-size: 2.5em;
-   }
-
-   #perhour {
-     font-size: 1.5em;
-   }
-
    .wage-input {
      margin: 1rem;
    }
@@ -131,20 +123,30 @@ textarea {
      width: 25%;
    }
 
-   .wage-display-group {
-     width: 50%;
-     color: #faf5ed;
+   .wage-display-group, .wage-display-group2  {
+     display: inline-block;
+     width: 200px;
+     height: 110px;
+     color: white;
      background-color: #2274A5;
      margin: 0 auto;
-     padding: .8em;
-     border-radius: 1.5em;
+     padding: 20px;
+     border-radius: 15px;
+     font-size: 42px;
+     vertical-align: top;
    }
 
-
-
-   button {
-     display: inline-block;
+   .wage-display-group2 {
+     /*display: none;*/
      background-color: #4CAF50;
+   }
+
+   .subt {
+     font-size: 24px;
+   }
+
+   #startStopBtn {
+     display: inline-block;
      border: none;
      border-radius: 1rem;
      color: white;
@@ -156,18 +158,21 @@ textarea {
      cursor: pointer;
    }
 
-   button:hover {
+
+   .startCounter {
+     background-color: #4CAF50;
+   }
+   .startCounter:hover {
      background-color: #4CBF50;
    }
 
-   #stopbtn {
-     margin-left: 10px;
+   .stopCounter {
      background-color: #cc0000;
    }
-
-   #stopbtn:hover {
+   .stopCounter:hover {
      background-color: #ff1a1a;
    }
+
 
    .container {
      display: flex;
@@ -191,16 +196,15 @@ textarea {
      height: 400px;
      width: 50%;
      padding: 30px;
-     background-image: url(../img/piggybank.svg);
+     /*background-image: url(../img/piggybank.svg);*/
      background-repeat: no-repeat;
      background-position: center center;
-     /*border: 2px solid #888;*/
+     border: 2px solid #888;
    }
 
-   #cumulativeTotal {
-     margin-top: 180px;
-     color: #4CAF50;
-     font-size: 45px;
+   #pigsvg {
+     margin: 0 auto;
+     width: 80%;
    }
 
    #pbank {
@@ -209,8 +213,32 @@ textarea {
    }
 
    @media (max-width: 600px) {
-     .wage-display-group {
-       width: 85%;
+     .wage-display-group, .wage-display-group2 {
+       width: 40%;
+       height: auto;
+       padding: 10px;
+       border-radius: 15px;
+       font-size: 24px;
+       vertical-align: top;
+     }
+
+     #startStopBtn {
+       height: 50px;
+       width: 100px;
+       display: inline-block;
+       border-radius: 1rem;
+       color: white;
+       padding: 1rem 2rem;
+       text-align: center;
+       text-decoration: none;
+       font-size: 1.3em;
+       margin: 10 auto;
+       cursor: pointer;
+     }
+
+     #playSVG {
+       display: inline-block;
+       float: left;
      }
 
      #stopbtn {
