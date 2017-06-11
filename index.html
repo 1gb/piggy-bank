@@ -12,39 +12,15 @@
     </head>
     <body>
         <div class="top">
-          <h1>Wage Per Second</h1>
-          <h3>Enter your hourly wage and watch your money grow in real-time!</h3>
+          <div class="toptitle">Wage Per Second</div>
+          <div class="topsubtitle">Enter your hourly wage and watch your money grow in real-time!</div>
         </div>
 
         <div class="main">
-          <div id="wage-box-container">
-            <div class="wage-box hourly">
-              <div class="maint">$<span id="dollar-display">15</span>.<span id="cents-display">00</span></div>
-              <div class="subt">per hour</div>
-            </div>
-            <div class="wage-box cumulative">
-              <div class="maint" id="cumulativeTotal">$<span id="cumulativeWage">00.00</span></div>
-              <div class="subt">so far</div>
-            </div>
-          </div>
-
-          <div class="wage-input">
-            <div id="dollar-section">
-              <label for="dollar">Dollars:</label>
-              <input type="range" class="range-slider" id="dollar" value="10" min="1" max="100" step="1">
-            </div>
-
-            <div id="cents-section">
-              <label for="cents">Cents:</label>
-              <input type="range" class="range-slider" id="cents" value="0" min="0" max="99" step="1">
-            </div>
-            <div id="amountPerSec">You earn $<span id="seconds-wage"></span> per second!</div>
-          </div>
-
-          <!-- <div id="counter"><span id="elapsedTime">000</span></div> -->
-          <div id="startStopBtn" class="startCounter">Start Counter</div>
-
           <div id="pigdiv">
+            <div class="cumulative">
+              <div id="cumulativeTotal">$<span id="cumulativeWage">00.00</span></div>
+            </div>
             <div id="pigsvg">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 352.2 334" xml:space="preserve" enable-background="new 0 0 352.2 334">
                 <style type="text/css">
@@ -124,6 +100,29 @@
               </svg>
             </div>
           </div>
+          <div class="belowPig">
+            <div class="wage-input">
+              <div id="dollar-section">
+                <label for="dollar">Dollars:</label>
+                <input type="range" class="range-slider" id="dollar" value="10" min="1" max="100" step="1">
+              </div>
+
+              <div id="cents-section">
+                <label for="cents">Cents:</label>
+                <input type="range" class="range-slider" id="cents" value="0" min="0" max="99" step="1">
+              </div>
+            </div>
+            <div id="wage-box-container">
+              <div class="wage-box hourly">
+                <div class="maint">$<span id="dollar-display">15</span>.<span id="cents-display">00</span></div>
+                <div class="subt">per hour</div>
+              </div>
+            </div>
+            <div id="startStopBtn" class="startCounter">Start Counter</div>
+          </div>
+          <div id="amountPerSec">You earn $<span id="seconds-wage"></span> per second!</div>
+
+          <!-- <div id="counter"><span id="elapsedTime">000</span></div> -->
         </div>
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>

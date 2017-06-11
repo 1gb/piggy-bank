@@ -1,6 +1,5 @@
-//style the sliders so they're bigger/easier to grab on mobile - I think this is done?
-// Centering the text within the wage boxes... messing with flexbox
-// Make the cumulative total appear in the middle of the pig!
+// put "$" and cents sign onto the track thumbs
+//fix the stopping... and class management (should reset when sliders are touched while animation is going)
 
 var secondsElapsed = 0;
 var minutesElapsed = 0;
@@ -15,7 +14,6 @@ t2.translate(0, 0);
 $( document ).ready(function() {
 
   $('.range-slider').on('input', function() {
-    //this resets the slider, timer, and money count
     var newValue = $(this).val();
     var label = $( '#' + $(this).attr('id') + '-display');
     var centsVal = $('#cents').val();
@@ -63,7 +61,6 @@ $( document ).ready(function() {
   function stopCoinAnimation() {
     coin.transform(t2);
   }
-
 
   $('#startStopBtn').on('click', function(e) {
     coin.stop();
